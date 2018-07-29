@@ -1,42 +1,46 @@
 //
-// INDEX - Initial file for PizzaDeliveryAPI
+// INDEX - Initial file for FlashTatuAPI
 // Author: Matheus de Sousa Monteiro Fonseca (https://github.com/matheus510)
 //
 
 // Dependencies
-var http = require('http');
-var https = require('https');
-var config = require('./lib/config');
-var url = require('url');
-var StringDecoder = require('string_decoder').StringDecoder;
-var handlers = require('./lib/handlers');
+const http = require('http');
+const https = require('https');
+const config = require('./lib/config');
+const url = require('url');
+const StringDecoder = require('string_decoder').StringDecoder;
+const handlers = require('./lib/handlers');
 
-var httpsServer = https.createServer(function(req, res){
+const httpsServer = https.createServer(function(req, res){
   internalServer(req, res);
 });
-var httpServer = http.createServer(function(req, res){
+const httpServer = http.createServer(function(req, res){
   internalServer(req, res);
 });
-var internalServer = function(req, res){
+const internalServer = function(req, res){
 
   // Parse received url
-  var parsedUrl = url.parse(req.url,true);
+  const parsedUrl = url.parse(req.url,true);
 
   // Obtain path
-  var path = parsedUrl.pathname;
-  var trimmedPath = path.replace(/^\/+|\/+$/g, '');
+  const path = parsedUrl.pathname;
+  const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+  const arrayPath = path.match(/\/([a-zA-Z?%0-9=])+/g);
+  const trimmedArrayPath = arrayPath.map(function(specifiedPath) {
+    return specifiedPath.replace(/^\/+|\/+$/g, '');
+  })
 
   // Get the query string as an object
-  var queryStringObj = parsedUrl.query;
+  const queryStringObj = parsedUrl.query;
 
   // Get the HTTP method
-  var method = req.method.toLowerCase();
+  const method = req.method.toLowerCase();
 
   // Get the headers as an object
-  var headers = req.headers;
+  const headers = req.headers;
 
   // Get the payload,if any
-  var decoder = new StringDecoder('utf-8');
+  const decoder = new StringDecoder('utf-8');
   var buffer = '';
 
   req.on('data', function(data){
@@ -48,24 +52,42 @@ var internalServer = function(req, res){
     buffer += decoder.end();
 
     // Construct the data object to send to the handler
-    var data = {
+    const data = {
       'trimmedPath' : trimmedPath,
+      'trimmedArrayPath': trimmedArrayPath,
       'queryStringObject' : queryStringObj,
       'method' : method,
       'headers' : headers,
       'payload' : buffer
     };
-    var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
-    chosenHandler(data, function(statusCode, payload){
-      // Convert the payload to a string
-      var payloadString = JSON.stringify(payload);
-      console.log('foi')
-      // Return the response
-      res.setHeader('Content-Type', 'application/json');
-      res.writeHead(statusCode);
-      res.end(payloadString);
-      console.log("Returning this response: ",statusCode,payloadString);
+    let chosenHandler;
+    // Determine handler to be used
+    // Check if route is a single path or multi-path
+    if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 1) {
+      // Maximum amount of subroutes is one. More than that it will return 404.
+      chosenHandler = typeof(router[trimmedArrayPath[0]] !== 'undefined') && trimmedArrayPath.length <= 2 ? router[trimmedArrayPath[0]] : handlers.notFound;
+    } else {
+      chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
+    }
+
+    chosenHandler(data, function(statusCode, payload, isPage){
+
+      if(isPage){
+        res.setHeader('Content-Type', 'text/html');
+        res.writeHead(statusCode);
+        res.end(payload);
+        console.log("Returning this response: ",statusCode,payload);  
+      }else{
+        // Convert the payload to a string
+        const payloadString = JSON.stringify(payload);
+
+        // Return the response
+        res.setHeader('Content-Type', 'application/json');
+        res.writeHead(statusCode);
+        res.end(payloadString);
+        console.log("Returning this response: ",statusCode,payloadString);
+      }
     });
   });
 };
@@ -78,10 +100,11 @@ httpsServer.listen(config.httpsPort, function(){
 });
 
 // Define the request router
-var router = {
+const router = {
   'ping' : handlers.ping,
   'user' : handlers.user,
   'token' : handlers.token,
   'product' : handlers.product,
-  'cart' : handlers.cart
+  'cart' : handlers.cart,
+  'phone': handlers.phone
 };
