@@ -12,14 +12,18 @@
   </head>
   <body>
     <h1>Teravoz events</h1>
+    <span>Start: </span>
     <ul id="events"></ul>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      console.log('ola')
       var socket = io();
-      // escuta os eventos emitidos pela
+      // Listens to events on socket
       socket.on('teravoz-event', function(event){
+        console.log('hey')
         $('#events').prepend($('<li>').text(event));
+        console.log('hehe', event)
       });
     </script>
   </body>

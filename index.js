@@ -8,6 +8,7 @@ const http = require('http');
 const https = require('https');
 const config = require('./lib/config');
 const url = require('url');
+const io = require('socket.io')(http);
 const StringDecoder = require('string_decoder').StringDecoder;
 const handlers = require('./lib/handlers');
 
@@ -77,7 +78,7 @@ const internalServer = function(req, res){
         res.setHeader('Content-Type', 'text/html');
         res.writeHead(statusCode);
         res.end(payload);
-        console.log("Returning this response: ",statusCode,payload);  
+        console.log('Returning this response: ',statusCode,payload);  
       }else{
         // Convert the payload to a string
         const payloadString = JSON.stringify(payload);
@@ -86,11 +87,17 @@ const internalServer = function(req, res){
         res.setHeader('Content-Type', 'application/json');
         res.writeHead(statusCode);
         res.end(payloadString);
-        console.log("Returning this response: ",statusCode,payloadString);
+        console.log('Returning this response: ',statusCode,payloadString);
       }
     });
   });
 };
+
+io.on('connection', function(socket){
+  socket.on('teravoz-event', function (data) {
+    console.log('alooooooooooo');
+  });
+});
 
 httpServer.listen(config.httpPort, function(){
   console.log('\x1b[42m%s\x1b[0m','listening at port: '+ config.httpPort);
