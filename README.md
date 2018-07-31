@@ -20,6 +20,7 @@ Then you can run the app itself:
 ```sh
 $ node index
 ```
+On start up, it will check and create the folders needed for our .json data base to work, the base folder ```./.data```, and other collections as ```./.data/customer```, ```./.data/user```, ```./.data/tokens```, ```./.data/products```
 
 #### Sending a request
 
@@ -47,5 +48,59 @@ $ node _API.requests.mock.js
 
 And it will be printed its delegation.
 
-Sending it twice, cause the delegation to be always 901, as the customer will already be registered.
+Sending it twice, cause the delegation to 901, as the customer will already be registered. 
 
+**Flashtatu API - Official documentation 0.0.1v**
+----
+  <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```._>
+
+* /user
+* **Method:**
+
+  `GET`
+  
+*  **Params** 
+```REQUIRES AUTHENTICATION TOKEN```
+Query string:
+  - ?email=
+```txt
+/user?email=valid@email.com
+```
+*  **Success Response:**
+  
+```js
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "emailAddress": "johndoe@email.com",
+  "streetAddress": "Doe",
+  "tosAgreement": true
+}
+```
+
+  * **Code:** 200 <br />
+    **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+
+* **users/**
+* **Method:**
+
+  `POST`
+  
+*  **Params** 
+
+```js
+{
+  "firstName": "String",
+  "lastName": "String",
+  "emailAddress": "String (valid e-mail)",
+  "streetAddress": "String (for now, no format validation)",
+  "password": "String (for now, a password with more than 10 characters)",
+  "tosAgreement": "Boolean, but for a successful User POST, it needs to be true"
+}
+```
+* **Success Response:**
+  
+  <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
+
+  * **Code:** 200 <br />
+    **Content:** `User created successfully`
