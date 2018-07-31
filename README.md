@@ -11,7 +11,7 @@ As one of the tasks were to show a little bit of code that I'm proud about, this
 
 #### Setup
 
-After cloning this repository, you will have to install npm dependencies (socket.io). Just type on your console:
+After cloning this repository, you will have to install npm dependencies (socket.io) UNUSED for now, but I'm working on it (for the dashboard). Just type on your console:
 ```sh
 $ npm install
 ```
@@ -23,6 +23,18 @@ $ node index
 #### Sending a request
 
 For this, you can use any client you want, but I've prepared a script for "testing". It will simulate all the challenge's cases.
+
+```js
+{
+  "type": "call.standby",
+  "call_id": "1463669263.30033",
+  "code": "123456",
+  "direction": "inbound",
+  "our_number": "0800000000",
+  "their_number": "11991910000",
+  "timestamp": "2017-01-01T00:00:00Z"
+}
+```
 
 - An unregistered customer calling, being registered in .data/customers collection, then being delegated to "*2900".
 - The same customer, but now registered, calling. When his identity is found on the .data/customers collection, it is delegated to *2901

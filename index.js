@@ -4,44 +4,48 @@
 //
 
 // Dependencies
-const http = require('http');
-const https = require('https');
-const config = require('./lib/config');
-const url = require('url');
-const io = require('socket.io')(http);
-const StringDecoder = require('string_decoder').StringDecoder;
-const handlers = require('./lib/handlers');
+var http = require('http');
+var https = require('https');
+var config = require('./lib/config');
+var url = require('url');
+var io = require('socket.io')(http);
+var StringDecoder = require('string_decoder').StringDecoder;
+var handlers = require('./lib/handlers');
+var helpers = require('./lib/helpers');
 
-const httpsServer = https.createServer(function(req, res){
+// Helper used for scaffolding "data base" folder
+helpers.scaffolding();
+
+var httpsServer = https.createServer(function(req, res){
   internalServer(req, res);
 });
-const httpServer = http.createServer(function(req, res){
+var httpServer = http.createServer(function(req, res){
   internalServer(req, res);
 });
-const internalServer = function(req, res){
+var internalServer = function(req, res){
 
   // Parse received url
-  const parsedUrl = url.parse(req.url,true);
+  var parsedUrl = url.parse(req.url,true);
 
   // Obtain path
-  const path = parsedUrl.pathname;
-  const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-  const arrayPath = path.match(/\/([a-zA-Z?%0-9=])+/g);
-  const trimmedArrayPath = arrayPath.map(function(specifiedPath) {
+  var path = parsedUrl.pathname;
+  var trimmedPath = path.replace(/^\/+|\/+$/g, '');
+  var arrayPath = path.match(/\/([a-zA-Z?%0-9=])+/g);
+  var trimmedArrayPath = arrayPath.map(function(specifiedPath) {
     return specifiedPath.replace(/^\/+|\/+$/g, '');
   })
 
   // Get the query string as an object
-  const queryStringObj = parsedUrl.query;
+  var queryStringObj = parsedUrl.query;
 
   // Get the HTTP method
-  const method = req.method.toLowerCase();
+  var method = req.method.toLowerCase();
 
   // Get the headers as an object
-  const headers = req.headers;
+  var headers = req.headers;
 
   // Get the payload,if any
-  const decoder = new StringDecoder('utf-8');
+  var decoder = new StringDecoder('utf-8');
   var buffer = '';
 
   req.on('data', function(data){
@@ -52,8 +56,8 @@ const internalServer = function(req, res){
   req.on('end', function(){
     buffer += decoder.end();
 
-    // Construct the data object to send to the handler
-    const data = {
+    // varruct the data object to send to the handler
+    var data = {
       'trimmedPath' : trimmedPath,
       'trimmedArrayPath': trimmedArrayPath,
       'queryStringObject' : queryStringObj,
@@ -81,7 +85,7 @@ const internalServer = function(req, res){
         console.log('Returning this response: ',statusCode,payload);  
       }else{
         // Convert the payload to a string
-        const payloadString = JSON.stringify(payload);
+        var payloadString = JSON.stringify(payload);
 
         // Return the response
         res.setHeader('Content-Type', 'application/json');
@@ -107,7 +111,7 @@ httpsServer.listen(config.httpsPort, function(){
 });
 
 // Define the request router
-const router = {
+var router = {
   'ping' : handlers.ping,
   'user' : handlers.user,
   'token' : handlers.token,

@@ -3,13 +3,13 @@
 //
 
 // Dependencies
-const http = require('http');
+var http = require('http');
 
 
 // Mocks for calls 
 
 // First, call.standby
-const newCallEvent = {
+var newCallEvent = {
   "type": "call.standby",
   "call_id": "1463669263.30033",
   "code": "123456",
