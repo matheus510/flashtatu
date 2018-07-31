@@ -31,7 +31,7 @@ var internalServer = function(req, res){
   var path = parsedUrl.pathname;
   var trimmedPath = path.replace(/^\/+|\/+$/g, '');
   var arrayPath = path.match(/\/([a-zA-Z?%0-9=])+/g);
-  var trimmedArrayPath = arrayPath.map(function(specifiedPath) {
+  var trimmedArrayPath = arrayPath.map(function(specifiedPath){
     return specifiedPath.replace(/^\/+|\/+$/g, '');
   })
 
@@ -69,10 +69,10 @@ var internalServer = function(req, res){
     let chosenHandler;
     // Determine handler to be used
     // Check if route is a single path or multi-path
-    if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 1) {
+    if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 1){
       // Maximum amount of subroutes is one. More than that it will return 404.
       chosenHandler = typeof(router[trimmedArrayPath[0]] !== 'undefined') && trimmedArrayPath.length <= 2 ? router[trimmedArrayPath[0]] : handlers.notFound;
-    } else {
+    }else{
       chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
     }
 
@@ -98,7 +98,7 @@ var internalServer = function(req, res){
 };
 
 io.on('connection', function(socket){
-  socket.on('teravoz-event', function (data) {
+  socket.on('teravoz-event', function (data){
     console.log('alooooooooooo');
   });
 });
