@@ -1,5 +1,11 @@
 #node_modules
 node_modules
 ./node_modules/*
-
+# data folder
+./.data/*
+./.data/
+# credentials folder
 /credentials/*
+
+# vscode folder
+./.vscode
