@@ -55,52 +55,51 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```._>
 
 * /user
-* **Method:**
+  * **Method:**
 
-  `GET`
+    `GET`
   
-*  **Params** 
-```REQUIRES AUTHENTICATION TOKEN```
-Query string:
-  - ?email=
-```txt
-/user?email=valid@email.com
-```
-*  **Success Response:**
-  
-```js
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "emailAddress": "johndoe@email.com",
-  "streetAddress": "Doe",
-  "tosAgreement": true
-}
-```
+  *  **Params** 
 
-  * **Code:** 200 <br />
-    **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /user?email=valid@email.com
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "emailAddress": "johndoe@email.com",
+      "streetAddress": "Doe",
+      "tosAgreement": true
+    }
+    ```
+    * **Code:** 200 <br />
+      **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
 
 * **users/**
-* **Method:**
+  * **Method:**
 
-  `POST`
+    `POST`
   
-*  **Params** 
+  *  **Params** 
+  JSON on request body
+  ```js
+  {
+    "firstName": "String",
+    "lastName": "String",
+    "emailAddress": "String (valid e-mail)",
+    "streetAddress": "String (for now, no format validation)",
+    "password": "String (for now, a password with more than 10 characters)",
+    "tosAgreement": "Boolean, but for a successful User POST, it needs to be true"
+  }
+  ```
+  * **Success Response:**
 
-```js
-{
-  "firstName": "String",
-  "lastName": "String",
-  "emailAddress": "String (valid e-mail)",
-  "streetAddress": "String (for now, no format validation)",
-  "password": "String (for now, a password with more than 10 characters)",
-  "tosAgreement": "Boolean, but for a successful User POST, it needs to be true"
-}
-```
-* **Success Response:**
-  
-  <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
-
-  * **Code:** 200 <br />
-    **Content:** `User created successfully`
+    * **Code:** 200 <br />
+      **Content:** `User created successfully`
