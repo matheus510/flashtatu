@@ -44,3 +44,8 @@ To run it, type on another tab of your console:
 ```sh
 $ node _API.requests.mock.js
 ```
+
+And it will be printed its delegation.
+
+Sending it twice, cause the delegation to be always 901, as the customer will already be registered.
+
