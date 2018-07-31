@@ -6,6 +6,7 @@ Flashtatu is a personal project that, in short, is a rest API. I was using it fo
 As one of the tasks were to show a little bit of code that I'm proud about, this one is a good example. I tried to make it simple and use no dependencies at all, using node API for most of it (except for socket.io).
 
 ### Documentation
+
   - WIP
   - I'll focus initialy on showing how to use my API on the challenge cases, for now, I have no documentation of the rest of the API.
 

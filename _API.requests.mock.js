@@ -17,7 +17,7 @@ var newCallEvent = {
   "our_number": "0800000000",
   "their_number": "11991910000",
   "timestamp": "2017-01-01T00:00:00Z"
-}
+};
 
 let requestOptions = {
   'host': 'localhost',
@@ -30,11 +30,10 @@ let requestOptions = {
 };
 
 var req = http.request(requestOptions, function(res){
-  console.log('foi')
   res.on('end', () => {
     console.log('End test request');
   });
-})
+});
 
 req.write(JSON.stringify(newCallEvent));
 req.end();
