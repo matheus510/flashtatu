@@ -54,7 +54,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 ----
   <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```._>
 
-* /user
+## /user
   * **Method:**
 
     `GET`
@@ -80,9 +80,8 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     }
     ```
     * **Code:** 200 <br />
-      **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
-
-* **users/**
+    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+----
   * **Method:**
 
     `POST`
@@ -102,4 +101,4 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   * **Success Response:**
 
     * **Code:** 200 <br />
-      **Content:** `User created successfully`
+    * **Content:** `User created successfully`
