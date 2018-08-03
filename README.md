@@ -58,7 +58,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
 **Flashtatu API - Official documentation 0.0.1v**
 ----
-  <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```._>
+  <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```. As cart module is not yet ready, I'll not document it for now._>
 
 ## /token
   * **Method:**
