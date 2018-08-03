@@ -54,6 +54,163 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 ----
   <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```._>
 
+## /token
+  * **Method:**
+
+    `GET`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?id=
+  ```txt
+  /token?id=^[0-9]{8}$
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+        "emailAddress": "johndoe@email.com",
+        "id": "gqx4n8aa35vv2xn63yeg",
+        "expires": 1533308197674
+    }
+    ```
+    * **Code:** 200 <br />
+    * **Content:** `{"emailAddress":"johndoe@email.com","id":"gqx4n8aa35vv2xn63yeg","expires":1533308197674}`
+----
+  * **Method:**
+
+    `POST`
+  
+  *  **Params** 
+  JSON on request body
+  ```js
+  {
+    "firstName": "String",
+    "lastName": "String",
+    "emailAddress": "String (valid e-mail)",
+    "streetAddress": "String (for now, no format validation)",
+    "password": "String (for now, a password with more than 10 characters)",
+    "tosAgreement": "Boolean, but for a successful token POST, it needs to be true"
+  }
+  ```
+  * **Success Response:**
+
+    * **Code:** 200 <br />
+    * **Content:** `token created successfully`
+----
+  * **Method:**
+
+    `DELETE`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?id=
+  ```txt
+  /token?id=^[0-9]{8}$
+  ```
+  
+  *  **Success Response:**
+
+    * **Code:** 200 <br />
+    * **Content:** `Deleted successfully`
+----
+## /product
+  * **Method:**
+
+    `GET`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /product?email=valid@email.com
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+      "name": "Flash",
+      "price": "100",
+    }
+    ```
+    * **Code:** 200 <br />
+    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+----
+  * **Method:**
+
+    `POST`
+  
+  *  **Params** 
+  JSON on request body
+  ```js
+  {
+    "firstName": "String",
+    "lastName": "String",
+    "emailAddress": "String (valid e-mail)",
+    "streetAddress": "String (for now, no format validation)",
+    "password": "String (for now, a password with more than 10 characters)",
+    "tosAgreement": "Boolean, but for a successful product POST, it needs to be true"
+  }
+  ```
+  * **Success Response:**
+
+    * **Code:** 200 <br />
+    * **Content:** `product created successfully`
+----
+  * **Method:**
+
+    `PUT`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /product?email=valid@email.com
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "emailAddress": "johndoe@email.com",
+      "streetAddress": "Doe",
+      "tosAgreement": true
+    }
+    ```
+    * **Code:** 200 <br />
+    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+----
+  * **Method:**
+
+    `DELETE`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /product?email=valid@email.com
+  ```
+  *  **Success Response:**
+
+    * **Code:** 200 <br />
+    * **Content:** `Deleted successfully`
+----
 ## /user
   * **Method:**
 
@@ -102,3 +259,76 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     * **Code:** 200 <br />
     * **Content:** `User created successfully`
+----
+  * **Method:**
+
+    `PUT`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /user?email=valid@email.com
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "emailAddress": "johndoe@email.com",
+      "streetAddress": "Doe",
+      "tosAgreement": true
+    }
+    ```
+    * **Code:** 200 <br />
+    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+----
+  * **Method:**
+
+    `PUT`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /user?email=valid@email.com
+  ```
+  *  **Success Response:**
+  
+    ```js
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "emailAddress": "johndoe@email.com",
+      "streetAddress": "Doe",
+      "tosAgreement": true
+    }
+    ```
+    * **Code:** 200 <br />
+    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+----
+  * **Method:**
+
+    `DELETE`
+  
+  *  **Params** 
+
+  ```REQUIRES AUTHENTICATION TOKEN```
+
+  Query string: 
+  ?email=
+  ```txt
+  /user?email=valid@email.com
+  ```
+  *  **Success Response:**
+
+    * **Code:** 200 <br />
+    * **Content:** `Deleted successfully`
+----

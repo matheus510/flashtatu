@@ -71,7 +71,7 @@ var internalServer = function(req, res){
     // Check if route is a single path or multi-path
     if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 1){
       // Maximum amount of subroutes is one. More than that it will return 404.
-      chosenHandler = typeof(router[trimmedArrayPath[0]] !== 'undefined') && trimmedArrayPath.length <= 2 ? router[trimmedArrayPath[0]] : handlers.notFound;
+      chosenHandler = typeof(router[trimmedArrayPath[0]]) !== 'undefined' && trimmedArrayPath.length <= 2 ? router[trimmedArrayPath[0]] : handlers.notFound;
     }else{
       chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
     }
