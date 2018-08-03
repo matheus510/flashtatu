@@ -12,14 +12,20 @@ As one of the tasks were to show a little bit of code that I'm proud about, this
 
 #### Setup
 
-After cloning this repository, you will have to install npm dependencies (socket.io) UNUSED for now, but I'm working on it (for the dashboard). Just type on your console:
-```sh
-$ npm install
-```
-Then you can run the app itself:
+After cloning this repository you can run the app itself:
 ```sh
 $ node index
 ```
+If using docker, first build the image
+```sh
+docker build . -t matheus510/flashtatu
+```
+ Run the docker container
+```sh
+docker run -p 5000:5000 -d matheus510/flashtatu
+```
+
+Then 
 On start up, it will check and create the folders needed for our .json data base to work, the base folder ```./.data```, and other collections as ```./.data/customer```, ```./.data/user```, ```./.data/tokens```, ```./.data/products```
 
 #### Sending a request
@@ -130,20 +136,15 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   ```REQUIRES AUTHENTICATION TOKEN```
 
   Query string: 
-  ?email=
+  ?name=
   ```txt
-  /product?email=valid@email.com
+  /product?name=validName
   ```
   *  **Success Response:**
   
-    ```js
-    {
-      "name": "Flash",
-      "price": "100",
-    }
     ```
     * **Code:** 200 <br />
-    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+    * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
 ----
   * **Method:**
 
@@ -152,19 +153,15 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   *  **Params** 
   JSON on request body
   ```js
-  {
-    "firstName": "String",
-    "lastName": "String",
-    "emailAddress": "String (valid e-mail)",
-    "streetAddress": "String (for now, no format validation)",
-    "password": "String (for now, a password with more than 10 characters)",
-    "tosAgreement": "Boolean, but for a successful product POST, it needs to be true"
-  }
+    {
+      "name": "GiantgreatswordTattoo",
+      "price": 100
+    }
   ```
   * **Success Response:**
 
     * **Code:** 200 <br />
-    * **Content:** `product created successfully`
+    * **Content:** `Product created successfully`
 ----
   * **Method:**
 
@@ -173,25 +170,24 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   *  **Params** 
 
   ```REQUIRES AUTHENTICATION TOKEN```
-
-  Query string: 
-  ?email=
-  ```txt
-  /product?email=valid@email.com
+  JSON on request body
+  ```js
+    {
+      "name": "GiantgreatswordTattoo",
+      "price": 100
+    }
   ```
   *  **Success Response:**
   
     ```js
     {
-      "firstName": "John",
-      "lastName": "Doe",
-      "emailAddress": "johndoe@email.com",
-      "streetAddress": "Doe",
-      "tosAgreement": true
+      "name": "GiantgreatswordTattoo",
+      "price": 100,
+      "id": "kw6046zeqsv2p2pp7csg"
     }
     ```
     * **Code:** 200 <br />
-    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+    * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
 ----
   * **Method:**
 
@@ -201,10 +197,10 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
   ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?email=
-  ```txt
-  /product?email=valid@email.com
+  ```js
+    {
+      "name": "GiantgreatswordTattoo"
+    }
   ```
   *  **Success Response:**
 

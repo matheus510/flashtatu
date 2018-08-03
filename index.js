@@ -8,7 +8,6 @@ var http = require('http');
 var https = require('https');
 var config = require('./lib/config');
 var url = require('url');
-var io = require('socket.io')(http);
 var StringDecoder = require('string_decoder').StringDecoder;
 var handlers = require('./lib/handlers');
 var helpers = require('./lib/helpers');
@@ -69,7 +68,7 @@ var internalServer = function(req, res){
     let chosenHandler;
     // Determine handler to be used
     // Check if route is a single path or multi-path
-    if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 1){
+    if(typeof(trimmedArrayPath) == 'object' && trimmedArrayPath.length > 2){
       // Maximum amount of subroutes is one. More than that it will return 404.
       chosenHandler = typeof(router[trimmedArrayPath[0]]) !== 'undefined' && trimmedArrayPath.length <= 2 ? router[trimmedArrayPath[0]] : handlers.notFound;
     }else{
@@ -96,12 +95,6 @@ var internalServer = function(req, res){
     });
   });
 };
-
-io.on('connection', function(socket){
-  socket.on('teravoz-event', function (data){
-    console.log('alooooooooooo');
-  });
-});
 
 httpServer.listen(config.httpPort, function(){
   console.log('\x1b[42m%s\x1b[0m','listening at port: '+ config.httpPort);
