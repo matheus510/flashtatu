@@ -80,9 +80,9 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     * **Content:** `{"emailAddress":"johndoe@email.com","id":"gqx4n8aa35vv2xn63yeg","expires":1533308197674}`
     ```js
     {
-        "emailAddress": "johndoe@email.com",
-        "id": "gqx4n8aa35vv2xn63yeg",
-        "expires": 1533308197674
+      "emailAddress": "johndoe@email.com",
+      "id": "gqx4n8aa35vv2xn63yeg",
+      "expires": 1533308197674
     }
     ```
 ----
