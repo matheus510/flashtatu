@@ -75,16 +75,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   /token?id=^[0-9]{8}$
   ```
   *  **Success Response:**
-  
-    ```js
-    {
-        "emailAddress": "johndoe@email.com",
-        "id": "gqx4n8aa35vv2xn63yeg",
-        "expires": 1533308197674
-    }
-    ```
-    * **Code:** 200 <br />
-    * **Content:** `{"emailAddress":"johndoe@email.com","id":"gqx4n8aa35vv2xn63yeg","expires":1533308197674}`
+
+  ```js
+  {
+      "emailAddress": "johndoe@email.com",
+      "id": "gqx4n8aa35vv2xn63yeg",
+      "expires": 1533308197674
+  }
+  ```
+  * **Code:** 200 <br />
+  * **Content:** `{"emailAddress":"johndoe@email.com","id":"gqx4n8aa35vv2xn63yeg","expires":1533308197674}`
 ----
   * **Method:**
 
