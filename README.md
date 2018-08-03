@@ -1,7 +1,7 @@
 # Flashtatu - A personal app, adapted to Teravoz challenge
 
 ### Introduction
-Flashtatu is a personal project that, in short, is a rest API for my future platform of Flash Tattoos, for my and my friend's and "co-founder", Vivian. I'm using this as a chance to improve my developing skills.
+Flashtatu is a personal project that, in short, is a rest API for a future platform of Flash Tattoos. I'm using this as a chance to improve my developing skills.
 
 As one of the tasks were to show a little bit of code that I'm proud about, this one is a good example. I tried to make it simple and use no dependencies at all, using node API for most of it (except for socket.io).
 
