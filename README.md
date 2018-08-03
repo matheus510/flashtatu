@@ -6,7 +6,8 @@ Flashtatu is a personal project that, in short, is a rest API. I was using it fo
 As one of the tasks were to show a little bit of code that I'm proud about, this one is a good example. I tried to make it simple and use no dependencies at all, using node API for most of it (except for socket.io).
 
 For checking my front-end skills and code, please check a personal project of mine, https://github.com/matheus510/PortalVueAdmin
-I developed a simple vue based portal, with componentizarion, state management with vuex and authentication with sha256 (initially for a private project of mine and @DaviArimateia93).
+
+* I developed a simple vue based portal, with componentization, state management with vuex and authentication with sha256 (initially for a private project of mine and @DaviArimateia93).
 
 ### Documentation
 
