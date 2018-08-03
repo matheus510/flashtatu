@@ -65,16 +65,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `GET`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?id=
-  ```txt
-  /token?id=^[0-9]{8}$
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?id=
+    ```txt
+    /token?id=^[0-9]{8}$
+    ```
+  * **Success Response:**
 
     * **Code:** 200 <br />
     * **Content:** `{"emailAddress":"johndoe@email.com","id":"gqx4n8aa35vv2xn63yeg","expires":1533308197674}`
@@ -90,18 +90,18 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `POST`
   
-  *  **Params** 
-  JSON on request body
-  ```js
-  {
-    "firstName": "String",
-    "lastName": "String",
-    "emailAddress": "String (valid e-mail)",
-    "streetAddress": "String (for now, no format validation)",
-    "password": "String (for now, a password with more than 10 characters)",
-    "tosAgreement": "Boolean, but for a successful token POST, it needs to be true"
-  }
-  ```
+  * **Params** 
+    JSON on request body
+    ```js
+    {
+      "firstName": "String",
+      "lastName": "String",
+      "emailAddress": "String (valid e-mail)",
+      "streetAddress": "String (for now, no format validation)",
+      "password": "String (for now, a password with more than 10 characters)",
+      "tosAgreement": "Boolean, but for a successful token POST, it needs to be true"
+    }
+    ```
   * **Success Response:**
 
     * **Code:** 200 <br />
@@ -111,17 +111,17 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `DELETE`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?id=
-  ```txt
-  /token?id=^[0-9]{8}$
-  ```
+    Query string: 
+    ?id=
+    ```txt
+    /token?id=^[0-9]{8}$
+    ```
   
-  *  **Success Response:**
+  * **Success Response:**
 
     * **Code:** 200 <br />
     * **Content:** `Deleted successfully`
@@ -131,16 +131,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `GET`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?name=
-  ```txt
-  /product?name=validName
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?name=
+    ```txt
+    /product?name=validName
+    ```
+  * **Success Response:**
   
     * **Code:** 200 <br />
     * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
@@ -156,14 +156,14 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `POST`
   
-  *  **Params** 
-  JSON on request body
-  ```js
-    {
-      "name": "GiantgreatswordTattoo",
-      "price": 100
-    }
-  ```
+  * **Params** 
+    JSON on request body
+    ```js
+      {
+        "name": "GiantgreatswordTattoo",
+        "price": 100
+      }
+    ```
   * **Success Response:**
 
     * **Code:** 200 <br />
@@ -173,17 +173,18 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `PUT`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
-  JSON on request body
-  ```js
-    {
-      "name": "GiantgreatswordTattoo",
-      "price": 100
-    }
-  ```
-  *  **Success Response:**
+    ```REQUIRES AUTHENTICATION TOKEN```
+
+    JSON on request body
+    ```js
+      {
+        "name": "GiantgreatswordTattoo",
+        "price": 100
+      }
+    ```
+  * **Success Response:**
 
     * **Code:** 200 <br />
     * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
@@ -199,16 +200,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `DELETE`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  ```js
-    {
-      "name": "GiantgreatswordTattoo"
-    }
-  ```
-  *  **Success Response:**
+    ```js
+      {
+        "name": "GiantgreatswordTattoo"
+      }
+    ```
+  * **Success Response:**
 
     * **Code:** 200 <br />
     * **Content:** `Deleted successfully`
@@ -218,16 +219,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `GET`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?email=
-  ```txt
-  /user?email=valid@email.com
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?email=
+    ```txt
+    /user?email=valid@email.com
+    ```
+  * **Success Response:**
     * **Code:** 200 <br />
     * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
     ```js
@@ -244,18 +245,18 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `POST`
   
-  *  **Params** 
-  JSON on request body
-  ```js
-  {
-    "firstName": "String",
-    "lastName": "String",
-    "emailAddress": "String (valid e-mail)",
-    "streetAddress": "String (for now, no format validation)",
-    "password": "String (for now, a password with more than 10 characters)",
-    "tosAgreement": "Boolean, but for a successful User POST, it needs to be true"
-  }
-  ```
+  * **Params** 
+    JSON on request body
+    ```js
+    {
+      "firstName": "String",
+      "lastName": "String",
+      "emailAddress": "String (valid e-mail)",
+      "streetAddress": "String (for now, no format validation)",
+      "password": "String (for now, a password with more than 10 characters)",
+      "tosAgreement": "Boolean, but for a successful User POST, it needs to be true"
+    }
+    ```
   * **Success Response:**
 
     * **Code:** 200 <br />
@@ -265,16 +266,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `PUT`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?email=
-  ```txt
-  /user?email=valid@email.com
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?email=
+    ```txt
+    /user?email=valid@email.com
+    ```
+  * **Success Response:**
   
     * **Code:** 200 <br />
     * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
@@ -292,16 +293,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `PUT`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?email=
-  ```txt
-  /user?email=valid@email.com
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?email=
+    ```txt
+    /user?email=valid@email.com
+    ```
+  * **Success Response:**
   
     * **Code:** 200 <br />
     * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
@@ -319,16 +320,16 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     `DELETE`
   
-  *  **Params** 
+  * **Params** 
 
-  ```REQUIRES AUTHENTICATION TOKEN```
+    ```REQUIRES AUTHENTICATION TOKEN```
 
-  Query string: 
-  ?email=
-  ```txt
-  /user?email=valid@email.com
-  ```
-  *  **Success Response:**
+    Query string: 
+    ?email=
+    ```txt
+    /user?email=valid@email.com
+    ```
+  * **Success Response:**
 
     * **Code:** 200 <br />
     * **Content:** `Deleted successfully`
