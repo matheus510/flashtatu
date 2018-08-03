@@ -159,10 +159,10 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   * **Params** 
     JSON on request body
     ```js
-      {
-        "name": "GiantgreatswordTattoo",
-        "price": 100
-      }
+    {
+      "name": "GiantgreatswordTattoo",
+      "price": 100
+    }
     ```
   * **Success Response:**
 
@@ -179,10 +179,10 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
     JSON on request body
     ```js
-      {
-        "name": "GiantgreatswordTattoo",
-        "price": 100
-      }
+    {
+      "name": "GiantgreatswordTattoo",
+      "price": 100
+    }
     ```
   * **Success Response:**
 
@@ -205,9 +205,9 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     ```REQUIRES AUTHENTICATION TOKEN```
 
     ```js
-      {
-        "name": "GiantgreatswordTattoo"
-      }
+    {
+      "name": "GiantgreatswordTattoo"
+    }
     ```
   * **Success Response:**
 
