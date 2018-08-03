@@ -178,16 +178,15 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     }
   ```
   *  **Success Response:**
-  
-    ```js
-    {
-      "name": "GiantgreatswordTattoo",
-      "price": 100,
-      "id": "kw6046zeqsv2p2pp7csg"
-    }
-    ```
-    * **Code:** 200 <br />
-    * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
+  ```js
+  {
+    "name": "GiantgreatswordTattoo",
+    "price": 100,
+    "id": "kw6046zeqsv2p2pp7csg"
+  }
+  ```
+  * **Code:** 200 <br />
+  * **Content:** `{"name":"GiantgreatswordTattoo","price":100,"id":"kw6046zeqsv2p2pp7csg"}`
 ----
   * **Method:**
 
@@ -223,17 +222,17 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   ```
   *  **Success Response:**
   
-    ```js
-    {
-      "firstName": "John",
-      "lastName": "Doe",
-      "emailAddress": "johndoe@email.com",
-      "streetAddress": "Doe",
-      "tosAgreement": true
-    }
-    ```
-    * **Code:** 200 <br />
-    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+  ```js
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "emailAddress": "johndoe@email.com",
+    "streetAddress": "Doe",
+    "tosAgreement": true
+  }
+  ```
+  * **Code:** 200 <br />
+  * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
 ----
   * **Method:**
 
@@ -271,17 +270,17 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   ```
   *  **Success Response:**
   
-    ```js
-    {
-      "firstName": "John",
-      "lastName": "Doe",
-      "emailAddress": "johndoe@email.com",
-      "streetAddress": "Doe",
-      "tosAgreement": true
-    }
-    ```
-    * **Code:** 200 <br />
-    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+  ```js
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "emailAddress": "johndoe@email.com",
+    "streetAddress": "Doe",
+    "tosAgreement": true
+  }
+  ```
+  * **Code:** 200 <br />
+  * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
 ----
   * **Method:**
 
@@ -298,17 +297,17 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   ```
   *  **Success Response:**
   
-    ```js
-    {
-      "firstName": "John",
-      "lastName": "Doe",
-      "emailAddress": "johndoe@email.com",
-      "streetAddress": "Doe",
-      "tosAgreement": true
-    }
-    ```
-    * **Code:** 200 <br />
-    * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
+  ```js
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "emailAddress": "johndoe@email.com",
+    "streetAddress": "Doe",
+    "tosAgreement": true
+  }
+  ```
+  * **Code:** 200 <br />
+  * **Content:** `{"firstName":"John","lastName":"Doe","emailAddress":"johndoe@email.com","streetAddress":"Doe","tosAgreement":true}`
 ----
   * **Method:**
 
