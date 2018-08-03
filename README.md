@@ -18,11 +18,11 @@ $ node index
 ```
 If using docker, first build the image
 ```sh
-docker build . -t matheus510/flashtatu
+$ docker build . -t matheus510/flashtatu
 ```
- Run the docker container
+Run the docker container
 ```sh
-docker run -p 5000:5000 -d matheus510/flashtatu
+$ docker run -p 5000:5000 -d matheus510/flashtatu
 ```
 
 Then 
