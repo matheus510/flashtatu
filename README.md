@@ -11,8 +11,7 @@ For checking my front-end skills and code, please check a personal project of mi
 
 ### Documentation
 
-  - WIP
-  - I'll focus initialy on showing how to use my API on the challenge cases, for now, I have no documentation of the rest of the API.
+  ```WIP```
 
 #### Setup
 
