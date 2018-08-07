@@ -22,7 +22,6 @@ var httpServer = http.createServer(function(req, res){
   internalServer(req, res);
 });
 var internalServer = function(req, res){
-
   // Parse received url
   var parsedUrl = url.parse(req.url,true);
 
@@ -32,7 +31,7 @@ var internalServer = function(req, res){
   var arrayPath = path.match(/\/([a-zA-Z?%0-9=])+/g);
   var trimmedArrayPath = arrayPath.map(function(specifiedPath){
     return specifiedPath.replace(/^\/+|\/+$/g, '');
-  })
+  });
 
   // Get the query string as an object
   var queryStringObj = parsedUrl.query;
@@ -55,7 +54,7 @@ var internalServer = function(req, res){
   req.on('end', function(){
     buffer += decoder.end();
 
-    // varruct the data object to send to the handler
+    // Construct the data object to send to the handler
     var data = {
       'trimmedPath' : trimmedPath,
       'trimmedArrayPath': trimmedArrayPath,
@@ -76,7 +75,6 @@ var internalServer = function(req, res){
     }
 
     chosenHandler(data, function(statusCode, payload, isPage){
-
       if(isPage){
         res.setHeader('Content-Type', 'text/html');
         res.writeHead(statusCode);
