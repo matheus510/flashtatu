@@ -29,7 +29,7 @@ $ docker run -p 5000:5000 -d matheus510/flashtatu
 ```
 
 Then 
-On start up, it will check and create the folders needed for our .json data base to work, the base folder ```./.data```, and other collections as ```./.data/customer```, ```./.data/user```, ```./.data/tokens```, ```./.data/products```
+On start up, it will check and create the folders needed for our .json data base to work, the base folder ```./.data```, and other collections as ```./.data/customer```, ```./.data/user```, ```./.data/tokens```, ```./.data/tattoos```
 
 #### Sending a request
 
@@ -61,7 +61,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
 
 **Flashtatu API - Official documentation 0.0.1v**
 ----
-  <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```products```, ```carts```. As cart module is not yet ready, I'll not document it for now._>
+  <_This API was designed for being the base for Flashtatu Platform. It will administrate ```users```, ```tokens```, ```tattoos```, ```carts```. As cart module is not yet ready, I'll not document it for now._>
 
 ## /token
   * **Method:**
@@ -129,7 +129,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     * **Code:** 200 <br />
     * **Content:** `Deleted successfully`
 ----
-## /product
+## /tattoo
   * **Method:**
 
     `GET`
@@ -141,7 +141,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
     Query string: 
     ?name=
     ```txt
-    /product?name=validName
+    /tattoo?name=validName
     ```
   * **Success Response:**
   
@@ -170,7 +170,7 @@ Sending it twice, cause the delegation to 901, as the customer will already be r
   * **Success Response:**
 
     * **Code:** 200 <br />
-    * **Content:** `Product created successfully`
+    * **Content:** `Tattoo created successfully`
 ----
   * **Method:**
 

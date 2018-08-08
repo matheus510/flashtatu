@@ -106,7 +106,7 @@ var router = {
   'ping' : handlers.ping,
   'user' : handlers.user,
   'token' : handlers.token,
-  'product' : handlers.product,
+  'tattoo' : handlers.tattoo,
   'cart' : handlers.cart,
   'phone': handlers.phone
 };
