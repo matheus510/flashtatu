@@ -1,4 +1,6 @@
-# Flashtatu - A personal app, adapted to Teravoz challenge
+# Flashtatu 0.0.1 - A personal app, adapted to Teravoz challenge
+
+[New repo for new version](https://github.com/matheus510/flashtatu_api.git)
 
 ### Introduction
 Flashtatu is a personal project that, in short, is a rest API for a future platform of Flash Tattoos. I'm using this as a chance to improve my developing skills.
