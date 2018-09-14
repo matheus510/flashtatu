@@ -1,19 +1,13 @@
-# Flashtatu 0.0.1 - A personal app, adapted to Teravoz challenge
+# Flashtatu 0.0.1 - A personal app.
 
 [New repo for new version](https://github.com/matheus510/flashtatu_api.git)
 
 ### Introduction
 Flashtatu is a personal project that, in short, is a rest API for a future platform of Flash Tattoos. I'm using this as a chance to improve my developing skills.
 
-As one of the tasks were to show a little bit of code that I'm proud about, this one is a good example. I tried to make it simple and use no dependencies at all, using node API for most of it (except for socket.io).
-
-For checking my front-end skills and code, please check a personal project of mine, https://github.com/matheus510/PortalVueAdmin
-
-* I developed a simple vue based portal, with componentization, state management with vuex and authentication with sha256 (initially for a private project of mine and [@DaviArimateia93](https://github.com/daviarimateia93)).
+As one of the tasks were to show a little bit of code that I'm proud about, this one is a good example. I tried to make it simple and use no dependencies at all, using node core API only. This is just a proof of concept (that I know how to work with node core modules, and how node works when it refers to data buffers, streams, pipes and etc.)
 
 ### Documentation
-
-  ```WIP```
 
 #### Setup
 
@@ -32,34 +26,6 @@ $ docker run -p 5000:5000 -d matheus510/flashtatu
 
 Then 
 On start up, it will check and create the folders needed for our .json data base to work, the base folder ```./.data```, and other collections as ```./.data/customer```, ```./.data/user```, ```./.data/tokens```, ```./.data/tattoos```
-
-#### Sending a request
-
-For this, you can use any client you want, but I've prepared a script for "testing". It will simulate all the challenge's cases.
-
-```js
-{
-  "type": "call.standby",
-  "call_id": "1463669263.30033",
-  "code": "123456",
-  "direction": "inbound",
-  "our_number": "0800000000",
-  "their_number": "11991910000",
-  "timestamp": "2017-01-01T00:00:00Z"
-}
-```
-
-- An unregistered customer calling, being registered in .data/customers collection, then being delegated to "*2900".
-- The same customer, but now registered, calling. When his identity is found on the .data/customers collection, it is delegated to *2901
-
-To run it, type on another tab of your console:
-```sh
-$ node _API.requests.mock.js
-```
-
-And it will be printed its delegation.
-
-Sending it twice, cause the delegation to 901, as the customer will already be registered. 
 
 **Flashtatu API - Official documentation 0.0.1v**
 ----
